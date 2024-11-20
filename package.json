@@ -6,16 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next export"
+    "electron-dev": "concurrently 'npm run dev' 'electron .'",
+    "electron-build": "electron-builder"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
     "lucide-react": "^0.446.0",
-    "next": "14.2.13",
+    "next": "^14.2.13",
     "react": "^18",
     "react-dom": "^18",
+    "start": "^5.1.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -24,5 +27,22 @@
     "eslint-config-next": "14.2.13",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
+  },
+  "build": {
+    "appId": "com.yourapp.id",
+    "productName": "YourAppName",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "next.config.js",
+      ".next/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "path/to/icon.ico"
+    }
   }
 }
