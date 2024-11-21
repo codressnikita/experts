@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write # Ensure the workflow can write contents (e.g., create releases)
+  contents: write
 
 jobs:
   tauri-build:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Code with LFS
         uses: actions/checkout@v3
         with:
-          lfs: true # Enable LFS to fetch large files
+          lfs: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -47,9 +47,8 @@ jobs:
         run: npm install @tauri-apps/cli @tauri-apps/api
 
       - name: Build the App
-        run: npm run tauri build
+        run: npm run tauri build --verbose
         env:
-          # Necessary for Tauri to build Windows apps
           RUSTFLAGS: "-C target-feature=+crt-static"
 
       - name: Upload Artifacts
