@@ -7,7 +7,7 @@ const Landing = ({ handleVideoClick }) => {
   return (
     <div className="overflow-y-auto h-[calc(100vh)]">
       <Hero
-        videoSrc={"./bg.mp4"}
+        videoSrc={"./background.mp4"}
         overlayOpts={{
           leftSize: { height: 60, width: 100 },
           rightSize: { height: 30, width: 200 },
