@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Checkout Code with LFS
         uses: actions/checkout@v3
-        with:
-          lfs: true
+        # with:
+        #   lfs: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
